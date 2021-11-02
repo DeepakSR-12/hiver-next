@@ -6,7 +6,7 @@ const News = () => {
   const [content, setContent] = useState([]);
   const [search, setSearch] = useState("");
 
-  // default news content array - search string - america
+  // default news content array - search string - q = america
   const contentArray = [
     {
       source: {
@@ -377,7 +377,7 @@ const News = () => {
   };
 
   return (
-    <div className="mt-10">
+    <div className="mt-10 max-w-screen-2xl mx-auto">
       <input
         type="text"
         placeholder="Search"

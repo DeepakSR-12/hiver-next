@@ -3,7 +3,6 @@ import { ArrowNarrowRightIcon, XIcon } from "@heroicons/react/outline";
 
 const NewsDetail = ({ value }) => {
   const [toggle, setToggle] = useState(false);
-  const [height, setHeight] = useState();
 
   const image =
     "https://st.depositphotos.com/1011646/1255/i/950/depositphotos_12553000-stock-photo-breaking-news-screen.jpg";
