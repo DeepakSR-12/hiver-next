@@ -21,7 +21,7 @@ const NewsDetail = ({ value }) => {
           <div className="mt-4 flex space-x-12">
             <img
               className="w-40 h-40 max-w-xs"
-              src={value.urlToImage || image}
+              src={value.urlToImage || value.image || image}
             />
             <div>
               <h2 className="text-3xl text-blue-700 font-semibold">

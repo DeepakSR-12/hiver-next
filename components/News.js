@@ -21,7 +21,7 @@ const News = () => {
       url: "https://techncruncher.blogspot.com/2021/10/stan-lees-first-superhero-became.html",
       urlToImage:
         "https://lh4.googleusercontent.com/proxy/0CnBHxb9chPCfSdy2gBD-h-kuBs6-xTENTHZIYRmE5ibouQP6gnwOrvd-PE80fD60vjx0d56ewW0k1WVdJVfJZ4dBhE-TDOqXzpIzZ2h6xoLtzRoEQHEwuBIMnIMxY1J-SrvIeXDXRupeLSRQHjhZEaTZdC-QM2ZUg-f=w1200-h630-p-k-no-nu",
-      image_url:
+      image:
         "https://lh4.googleusercontent.com/proxy/0CnBHxb9chPCfSdy2gBD-h-kuBs6-xTENTHZIYRmE5ibouQP6gnwOrvd-PE80fD60vjx0d56ewW0k1WVdJVfJZ4dBhE-TDOqXzpIzZ2h6xoLtzRoEQHEwuBIMnIMxY1J-SrvIeXDXRupeLSRQHjhZEaTZdC-QM2ZUg-f=w1200-h630-p-k-no-nu",
       publishedAt: "2021-10-03T19:21:00Z",
       pubDate: "2021-10-03T19:21:00Z",
@@ -42,7 +42,7 @@ const News = () => {
       link: "https://www.wired.com/story/games-set-in-latin-america/",
       urlToImage:
         "https://media.wired.com/photos/6160775579ac4f82ee691579/191:100/w_1280,c_limit/Games-Far-Cry-6-2.jpg",
-      image_url:
+      image:
         "https://media.wired.com/photos/6160775579ac4f82ee691579/191:100/w_1280,c_limit/Games-Far-Cry-6-2.jpg",
       publishedAt: "2021-10-29T12:00:00Z",
       pubDate: "2021-10-29T12:00:00Z",
@@ -63,7 +63,7 @@ const News = () => {
       link: "https://www.wired.com/story/games-set-in-latin-america/",
       urlToImage:
         "https://cdn.cnn.com/cnnnext/dam/assets/211007200028-this-is-life-lisa-ling-vincent-chin-clip-4-00003412-super-tease.png",
-      image_url:
+      image:
         "https://cdn.cnn.com/cnnnext/dam/assets/211007200028-this-is-life-lisa-ling-vincent-chin-clip-4-00003412-super-tease.png",
       publishedAt: "2021-10-08T00:02:45Z",
       pubDate: "2021-10-08T00:02:45Z",
@@ -83,7 +83,7 @@ const News = () => {
       link: "https://www.wired.com/story/games-set-in-latin-america/",
       urlToImage:
         "https://ichef.bbci.co.uk/news/1024/branded_news/11284/production/_121167207_gettyimages-452370112.jpg",
-      image_url:
+      image:
         "https://ichef.bbci.co.uk/news/1024/branded_news/11284/production/_121167207_gettyimages-452370112.jpg",
       publishedAt: "2021-10-21T12:56:12Z",
       pubDate: "2021-10-21T12:56:12Z",
@@ -104,7 +104,7 @@ const News = () => {
       link: "https://www.wired.com/story/games-set-in-latin-america/",
       urlToImage:
         "https://static01.nyt.com/images/2021/10/10/arts/10morat1/10morat1-facebookJumbo.jpg",
-      image_url:
+      image:
         "https://static01.nyt.com/images/2021/10/10/arts/10morat1/10morat1-facebookJumbo.jpg",
       publishedAt: "2021-10-07T14:00:09Z",
       pubDate: "2021-10-07T14:00:09Z",
@@ -149,20 +149,13 @@ const News = () => {
 
       const contentArray = axios
         .get(
-          `https://newsapi.org/v2/everything?q=${filterTerm}&apiKey=${process.env.api_key2}`
+          // `https://newsapi.org/v2/everything?q=${filterTerm}&apiKey=${process.env.api_key2}`
+          `https://gnews.io/api/v4/search?q=${filterTerm}&token=${process.env.api_key3}`
         )
         .then((res) => {
           setContent(res.data.articles);
         });
     }
-  };
-
-  const handleButtonClick = () => {
-    const data = axios
-      .get(`https://newsdata.io/api/1/news?apikey=${process.env.api_key}`)
-      .then((res) => {
-        console.log(res);
-      });
   };
 
   return (
@@ -175,7 +168,6 @@ const News = () => {
         value={search}
       />
       <div>
-        <button onClick={handleButtonClick}>click</button>
         {content?.length === 0 ? (
           <p>No News to Display!</p>
         ) : (
